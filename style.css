@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    flex-flow: column;
+    background-color: slateblue;
+    height: 100vh;
+    width: 100vw;
+}
+#top {
+    width: 100%;
+    height: 80%;
+    background-color: purple;
+    display: flex;
+}
+
+#currentWeatherContainer{
+    display: flex;
+    flex-flow: column;
+    align-items: left;
+    justify-content: flex-start;
+    height: 65%;
+    width: 50%;
+    border: 5px solid black;
+}
+
+#description,
+#location,
+#date,
+#currentTemp{
+    background-color: blue;
+    height: 80px;
+    width: 100%;
+}
+
+#location {
+    background-color: lightblue;
+}
+
+#date {
+    background-color:skyblue;
+}
+
+#currentTemp{
+    background-color: royalblue;
+}
+
+#miscInfoContainer{
+    display: flex;
+    flex-flow: column;
+    align-items: right;
+    justify-content: flex-start;
+    height: 65%;
+    width: 50%;
+    border: 5px solid green;
+}
+
+.miscInfo{    
+    height: 80px;
+    width: 100%;
+    border: 5px solid white;
+}
+
+#bottomContainer{
+    display: flex;
+    flex-flow: column;    
+    height: 40%;
+    width: 100%;
+    border: 3px solid red;
+}
+
+#tabs {
+    background-color: gold;
+    height: 25%;
+    width: 100%;
+}
+
+#forecastContainer{
+    background-color: brown;
+    width: 100%;
+    height: 95%;
+}
+
+#section{
+    width: 80px;
+    height: 100%;
+    border: 2px solid white;
+}
