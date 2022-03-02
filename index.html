@@ -4,8 +4,10 @@
         <title>Weather App</title>
         <meta charset="UTF-8"/>
         <script src="index.js" defer></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">  
-      </head>
+    </head>
 <body>
 <div id='top'>
     <div id='currentWeatherContainer'>
@@ -14,19 +16,23 @@
         <div id='date'>date</div>
         <div id='currentTemp'>123*</div>
         <div id='locationInputContainer'>
-            <input id='locationInput'>
+            <label id='citySearch'>City Search <input id='locationInput'></label>
+            <button id='citySearchBtn'>Search</button>
         </div>
-        <div id='locationOutputContainer show'>
+        <div id='locationOutputContainer'>
             <div class='city'></div>
             <div class='city'></div>
             <div class='city'></div>
             <div class='city'></div>
             <div class='city'></div>
         </div>
-        <button id='getData'>Get Data</button>
     </div>
     <div id='miscInfoContainer'>
         <div id='feelsLikeContainer' class='miscInfo'></div>
+        <span class="material-icons-outlined">thermostat</span>
+        <span class="material-icons-outlined">
+            air
+            </span>
         <div id='humidityContainer' class='miscInfo'></div>
         <div id='cloudinessContainer' class='miscInfo'></div>
         <div id='windSpeedContainer' class='miscInfo'></div>

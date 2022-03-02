@@ -52,16 +52,17 @@ function setupPage(){
     let divMiscDataArray = [];
     
     for (let i = 0; i<4; i++){
-        divIconArray[i] = document.createElement('i');
+        divIconArray[i] = document.createElement('span');
         divLabelArray[i] = document.createElement('label');
         divMiscDataArray[i] = document.createElement('div');
 
-        divIconArray[i].innerText = 'icon';
-        let label = getLabelText(i)
+        let label = getLabelText(i);
+        let icon = getIcon(i);
+        divIconArray[i].innerText = icon;
         divLabelArray[i].innerText = label;
         divMiscDataArray[i].innerText = 'data';
 
-        divIconArray[i].classList.add('icon');
+        divIconArray[i].classList.add('material-icons');
         divLabelArray[i].classList.add('miscLabel');
         divMiscDataArray[i].classList.add('miscData');
         
@@ -89,6 +90,24 @@ function getLabelText(i){
             return 'Cloudiness';
         case 3:
             return 'Wind Speed';
+            default:
+                break;
+                // case 4:
+                //     break;
+            }
+}
+
+
+function getIcon(i){
+    switch (i){
+        case 0:
+            return 'thermostat';
+        case 1:
+            return 'water_drop';
+        case 2:
+            return 'filter_drama';
+        case 3:
+            return 'air';
             default:
                 break;
                 // case 4:
@@ -272,12 +291,3 @@ function getDateFromTimestamp(timestamp, form){
     }
 
 }
-
-// async function getCurrentData(lat, lon){
-    
-//     let latLonResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ec48189d76f293875d59d78ec20af98b`, {mode: 'cors'});
-
-//     let weatherData = await latLonResponse.json();
-
-//     return weatherData;    
-// }
