@@ -8,6 +8,7 @@ const currentDate = document.getElementById('date');
 const currentTemp = document.getElementById('currentTemp');
 const tempUnitBtn = document.getElementById('tempUnit');
 tempUnitBtn.addEventListener('click', ()=>{isCelsius = toggleUnit(isCelsius)
+                                          tempUnitBtn.innerText = isCelsius ? 'Display F':'Display C';
                                           });
 
 
