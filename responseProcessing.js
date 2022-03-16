@@ -46,6 +46,7 @@ async function getWeatherData(lat, lon){
 function parseWeatherResponse(response, city){
     console.log(response);
     let description = response.current.weather[0].description;
+    changeBackground(response.current.weather[0].id);
     description = description[0].toUpperCase() + description.slice(1);    
     currentDescription.innerText = description;
     currentLocation.innerText = city;
@@ -140,3 +141,57 @@ function setDailyForecastData(node, index, response, dailyIndex){
     }
 }
 
+function changeBackground(id){
+    let condition;
+    id = id.toString();
+    console.log('changing background', id, id[0]);
+
+    if (id[0] == '2'){
+        condition = 'thunderstorm';
+    }
+    else if (id[0] == '3'){
+        condition = 'drizzle';
+    }
+    else if (id[0] == '5'){
+        condition = 'rain';
+    }
+    else if (id[0] == '6'){
+        condition = 'snow';
+    }
+    else if (id[0] == '7'){
+        condition = 'atmosphere';
+    }
+    else if (id[0] == '8' && id[2] == '0'){
+        condition = 'clear';
+    }
+    else if (id[0] == '8'){
+        condition = 'clouds';
+    }
+    
+    console.log(condition);
+    let background = document.body.style; 
+
+    switch(condition){   
+        case "thunderstorm":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://cdn.forumcomm.com/dims4/default/c04748f/2147483647/strip/true/crop/1380x920+270+0/resize/840x560!/format/webp/quality/90/?url=https%3A%2F%2Ffcc-cue-exports-brightspot.s3.us-west-2.amazonaws.com%2Fagweek%2Fbinary%2Fcopy%2Fc1%2F91%2F8065335377bbc22cc285e61fbfe7%2F3158371-lightning-1158027-1920-binary-4937661.jpg')";
+            break;
+        case "drizzle":
+        case "rain":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://fox5sandiego.com/wp-content/uploads/sites/15/2021/12/AdobeStock_366903907-e1640748488433.jpeg?strip=1')";
+            break;
+        case "snow":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://www.ashevillenc.gov/wp-content/uploads/2021/01/Asheville-Old-Toll-Road-in-snow-scaled.jpg')";
+            break;
+        case "atmosphere":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://images.wallpaperscraft.com/image/single/forest_trees_fog_110131_1920x1080.jpg')";
+            break;
+        case "clear":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://www.willseye.org/wp-content/uploads/2017/08/sun-clouds-blue-sky-14641020076aM.jpg')";
+        case "clouds":
+            background.backgroundImage = "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://images.freeimages.com/images/large-previews/d05/cloudy-sky-1200230.jpg')";
+            break;
+        default: 
+            background.backgroundImage = `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+            url('https://mir-s3-cdn-cf.behance.net/projects/max_808/65dfc6101821053.Y3JvcCwxNjAwLDEyNTEsMCwyMw.png')`;
+        }
+}
